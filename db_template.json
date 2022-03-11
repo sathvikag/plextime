@@ -1,0 +1,41 @@
+{
+    "user": [
+        {
+            "id": "str",
+            "name": "str",
+            "sid": "int",
+            "email": "str",
+            "comment id": []
+        }
+    ],
+
+    "classes": [
+        {
+            "id": "str",
+            "name": "str",
+            "professor name": "str", 
+            "breadth category": [],
+            "average grade": "float",
+            "pain level": "int",
+            "comment id": []
+        }
+    ],
+
+    "comments": [
+        {
+            "id": "str",    
+            "user id": "str",
+            "class id": "str",
+            "content": "str"
+        }
+    ],
+
+    "professor": [
+        {
+            "id": "str",
+            "name": "str",
+            "email": "str",
+            "classes taught": []
+        }
+    ]
+}
