@@ -3,25 +3,23 @@
         {
             "id": "str",
             "name": "str",
-            "sid": "int",
-            "email": "str",
-            "comment id": []
+            "sid": "long",
+            "email": "str"
         }
     ],
 
-    "classes": [
+    "class": [
         {
             "id": "str",
             "name": "str",
             "professor name": "str", 
             "breadth category": [],
             "average grade": "float",
-            "pain level": "int",
-            "comment id": []
+            "pain level": "int"
         }
     ],
 
-    "comments": [
+    "comment": [
         {
             "id": "str",    
             "user id": "str",
