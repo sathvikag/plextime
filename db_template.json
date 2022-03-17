@@ -1,39 +1,38 @@
 {
-    "user": [
+    "Users": [
         {
-            "id": "str",
+            "_id": "str",
             "name": "str",
             "sid": "long",
             "email": "str"
         }
     ],
 
-    "class": [
+    "Classes": [
         {
-            "id": "str",
+            "_id": "str",
             "name": "str",
-            "professor name": "str", 
-            "breadth category": [],
-            "average grade": "float",
-            "pain level": "int"
+            "breadth_category": [],
+            "average_grade": "float",
+            "pain_level": "int"
         }
     ],
 
-    "comment": [
+    "Comments": [
         {
-            "id": "str",    
-            "user id": "str",
-            "class id": "str",
+            "_id": "str",    
+            "user_id": "str",
+            "class_id": "str",
             "content": "str"
         }
     ],
 
-    "professor": [
+    "Professors": [
         {
-            "id": "str",
+            "_id": "str",
             "name": "str",
             "email": "str",
-            "classes taught": []
+            "classes_taught": []
         }
     ]
 }
