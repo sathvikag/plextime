@@ -1,10 +1,16 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 import uuid
+import json
+from cryptocode import decrypt
 
 app = Flask(__name__)
 
-client = MongoClient("mongodb+srv://shamith09:Magistrates821\"@plextime.dmmb7.mongodb.net/myFirstDatabase?retryWrites=false&w=majority")
+with open('meta.json', 'r') as file:
+    meta = json.load(file)
+    password = decrypt(meta['password'], meta['key'])
+
+client = MongoClient(f"mongodb+srv://{meta['username']}:{password}@plextime.dmmb7.mongodb.net/myFirstDatabase?retryWrites=false&w=majority")
 db = client.plextime
 
 ### END EXAMPLE CODE
@@ -95,7 +101,7 @@ def edit_professor(id):
         return deleted_professor, 200
 
 @app.route("/professors", methods = ["GET", "POST"])
-def edit_professor():
+def edit_professor2():
     if request.method == "POST":
         professor = {
             "_id": str(uuid.uuid4()),
