@@ -33,7 +33,7 @@ const customIcons = {
       icon: <SentimentVerySatisfiedIcon />,
       label: 'Very Satisfied',
     },
-  };
+};
   
 function IconContainer(props) {
     const { value, ...other } = props;
@@ -42,19 +42,8 @@ function IconContainer(props) {
   
 const Class = props => {
     const [classData, setClassData] = useState({});
-    let class_id = props.class_id;
     useEffect (() => {
-        const SAMPLE_DATA = {
-            _id: "3ibvb349nveen34nv93vbd",
-            name: "EECS 16B",
-            breadth_category: ['Physical Science', 'English'],
-            average_grade: 3.3,
-            pain_level: 4,
-            professors: ['Stojanovic', 'Murat']
-        }
-        fetch(process.env.BACKEND_URL + "/classes/" + class_id)
-        .then(response => response.json())
-        .then(setClassData(SAMPLE_DATA));
+        setClassData(props.class);
     }, []);
 
     return (
@@ -71,7 +60,7 @@ const Class = props => {
             />
             <p style = {{fontWeight: "bold"}}>Breadth Categories:</p>
             <List component={Stack} direction="row">
-                {classData.breadth_category != undefined ? classData.breadth_category.map(el => {
+                {classData.breadth_category !== undefined ? classData.breadth_category.map(el => {
                     return (<ListItem disablePadding>
                         <ListItemButton sx = {{maxWidth: "50%", textAlign: "center", marginLeft: "auto", marginRight: "auto"}}component="a" href={"search/" + el}> {/* TODO: change url */}
                             <ListItemText primary = {el} />
@@ -81,7 +70,7 @@ const Class = props => {
             </List>
             <p style = {{fontWeight: "bold"}}>Professors:</p>
             <List component={Stack} direction="row">
-                {classData.professors != undefined ? classData.professors.map(el => {
+                {classData.professors !== undefined ? classData.professors.map(el => {
                     return (<ListItem disablePadding>
                         <ListItemButton sx = {{maxWidth: "50%", textAlign: "center", marginLeft: "auto", marginRight: "auto"}}component="a" href={"search/" + el}> {/* TODO: change url */}
                             <ListItemText primary = {el} />
