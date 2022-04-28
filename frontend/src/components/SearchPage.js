@@ -28,7 +28,7 @@ const SearchPage = props => {
                 breadth_category: [],
                 average_grade: 3.6,
                 pain_level: 2,
-                professors: ['Hillfinger']
+                professors: ['Hilfinger']
             },
             {
                 _id: "3ibvb349gveen34nv93vbd",
