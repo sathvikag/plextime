@@ -32,10 +32,11 @@ def test3():
 
 ### END EXAMPLE CODE
 
-# return list of first 50 classes
+# TODO: return list of first 50 classes
 @app.route("/classes", methods=["GET"])
 def get_classes():
-    return None
+    documents = db.Classes.find({})
+    return jsonify([d for d in documents]), 200
 
 # return user information/profile
 # uuid.uuid4()
@@ -48,12 +49,23 @@ def edit_user(user_id):
 def user_comments(user_id):
     return None
 
+# TODO:
 # get information for a paticular class_id
 # add functionality for "/professors"
 # don't let users delete/add classes 
-@app.route("/classes/<class_id>", methods=["GET", "PUT", "POST", "DELETE"])
-def edit_class(class_id):
-    return None
+@app.route("/classes/<class_id>", methods=["GET", "POST"])
+def get_class(class_id):
+    if request.method == "GET":
+        class_list = db.Classes.find({"class_id": class_id})
+        return class_list, 200
+    if request.method == "POST":
+        classes_dic = {"_id": str(uuid.uuid4()), "name": request.form["name"], 
+            "breadth_category": request.form["breadth_category"], 
+            "average_grade": request.form['average_grade'], 
+            "pain level": request.form["pain level"]}
+        db.Classes.insert_one(classes_dic)
+        return classes_dic, 200
+    
 
 # editing comments from class
 @app.route("/classes/<class_id>/comments", methods=["GET", "POST"])
@@ -63,10 +75,12 @@ def class_comments(class_id):
         return jsonify([comment for comment in comments_list]), 200
         
     elif request.method == 'POST':
-        comment_dic = {"_id": str(uuid.uuid4()), "user_id": request.form["user_id"], "class_id": class_id, "content": request.form['content']}
+        comment_dic = {"_id": str(uuid.uuid4()), "user_id": request.form["user_id"], 
+            "class_id": class_id, "content": request.form['content']}
         db.Comments.insert_one(comment_dic)
         return comment_dic, 200
 
+# very similar to edit_class
 @app.route("/classes/<class_id>/comments/<id>", methods=["PUT", "DELETE"])
 def edit_comment(class_id, id):     
     if request.method == "PUT":
