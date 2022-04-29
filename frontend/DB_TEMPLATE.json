@@ -1,0 +1,38 @@
+{
+    "Users": [
+        {
+            "_id": "str",
+            "name": "str",
+            "sid": "long",
+            "email": "str"
+        }
+    ],
+
+    "Classes": [
+        {
+            "_id": "str",
+            "name": "str",
+            "breadth_category": [],
+            "average_grade": "float",
+            "pain_level": "int"
+        }
+    ],
+
+    "Comments": [ 
+        {
+            "_id": "str",    
+            "user_id": "str",
+            "class_id": "str",
+            "content": "str"
+        }
+    ],
+
+    "Professors": [
+        {
+            "_id": "str",
+            "name": "str",
+            "email": "str",
+            "classes_taught": []
+        }
+    ]
+}

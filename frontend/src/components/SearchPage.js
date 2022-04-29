@@ -81,7 +81,7 @@ const SearchPage = props => {
                 } else {
                     return element.breadth_category.includes(breadthCategory);
                 }
-            }).map(element => <Class class={element} />)}
+            }).map(element => <Class class={element} sx = {{maxWidth: "50%", textAlign: "center", marginLeft: "auto", marginRight: "auto"}}/>)}
         </div>
     );
 

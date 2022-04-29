@@ -47,7 +47,7 @@ const Class = props => {
     }, []);
 
     return (
-        <Paper elevation = {3} style={{width: "50%"}}>
+        <Paper elevation = {3} style={{width: "50%"}} sx = {{maxWidth: "50%", textAlign: "center", marginLeft: "auto", marginRight: "auto"}}>
             <br />
             <h1>{classData.name}</h1>
             <p style = {{fontWeight: "bold"}}>Pain Level:</p>
