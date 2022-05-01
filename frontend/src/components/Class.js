@@ -11,6 +11,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
 
 const customIcons = {
     5: {
@@ -49,7 +50,7 @@ const Class = props => {
     return (
         <Paper elevation = {3} style={{width: "50%"}} sx = {{maxWidth: "50%", textAlign: "center", marginLeft: "auto", marginRight: "auto"}}>
             <br />
-            <h1>{classData.name}</h1>
+            <h1><a href="/comments">{classData.name}</a></h1>
             <p style = {{fontWeight: "bold"}}>Pain Level:</p>
             <Rating
                 name="highlight-selected-only"
